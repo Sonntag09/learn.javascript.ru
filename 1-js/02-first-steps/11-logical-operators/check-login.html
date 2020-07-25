@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Check login</title>
+  </head>
+
+  <body>
+    <script>
+      let login = prompt(`Who's there?`, ``);
+
+      if (login === `admin`) {
+        let pass = prompt(`Password:`, ``);
+
+        if (pass === `main`) {
+          alert(`Hello!`);
+        } else if ( pass === null || pass === `` ) {
+          alert(`Cancelled`)
+        } else {
+          alert('Invalid password');
+        }
+
+      } else if (login === null || login === ``) {
+        alert(`Cancelled`);
+      } else {
+        alert(`I don't know you`);
+      }
+    </script>
+  </body>
+</html>
