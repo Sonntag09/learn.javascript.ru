@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      let x = +prompt('Enter number', '');
+      let n;
+      do {        
+        n = +prompt('Enter exponent >= 1', '');
+      } while (n < 1 || !Number.isInteger(n));
+      
+      function pow(x, n) {         
+        return (x ** n);
+      }
+      
+      alert(pow(x, n));
+    </script>
+  </body>
+</html>
