@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      function ask(question, yes, no) {
+        if (confirm(question)) yes()
+        else no();
+      }
+
+      ask(
+        "Вы согласны?",
+        () => alert("Вы согласились."),
+        () => alert("Вы отменили выполнение.")
+      );
+    </script>
+  </body>
+</html>
