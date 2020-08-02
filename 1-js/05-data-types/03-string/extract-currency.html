@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      function extractCurrencyValue(str) {
+        return +str.slice(1);
+      }
+
+      alert( extractCurrencyValue('$1000') );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      function checkSpam(str) {
+        str = str.toLowerCase();
+        return str.includes('viagra') || str.includes('xxx');//!
+      }
+
+      alert( checkSpam('asdxXxfgh') );
+    </script>
+  </body>
+</html>
