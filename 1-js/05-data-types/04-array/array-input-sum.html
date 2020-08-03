@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      function sumInput() {
+        let arr = [];
+        let n;
+        let sum = 0;
+        
+        do {
+          n = prompt('Enter number:', '');
+          if (!isFinite(n) || n === '') break;
+          n = +n;
+          arr.push(n);
+          sum += n;
+        } while (true);
+
+        return sum;
+      }
+
+      alert( sumInput());
+    </script>
+  </body>
+</html>
