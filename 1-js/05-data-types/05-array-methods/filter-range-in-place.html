@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      let arr = [5, 3, 8, 1];
+
+      filterRangeInPlace(arr, 1, 4); // удалены числа вне диапазона 1..4
+
+      alert( arr ); // [3, 1]
+
+      function filterRangeInPlace(arr, a, b) {
+        arr.forEach((item, index) => (item >= a && item <= b) ? item : arr.splice(index, 1));
+      }
+    </script>
+  </body>
+</html>

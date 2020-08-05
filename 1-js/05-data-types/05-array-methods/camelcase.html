@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      function camelize(str) {
+        let charArr = str.split('');
+        
+        charArr.forEach(function(item, index, array) { if (item === '-') { array.splice(index, 1); array[index] = array[index].toUpperCase(); }});
+
+        return (charArr.join(''));
+      }
+
+      alert( camelize("background-color") );
+    </script>
+  </body>
+</html>
