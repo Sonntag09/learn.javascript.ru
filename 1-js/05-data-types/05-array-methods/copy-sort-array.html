@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      let arr = ["HTML", "JavaScript", "CSS"];
+
+      let sorted = copySorted(arr);
+
+      alert( sorted ); // CSS, HTML, JavaScript
+      alert( arr ); // HTML, JavaScript, CSS (без изменений)
+
+      function copySorted(arr) {
+        return arr.slice().sort();
+      }
+
+      </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      let calc = new Calculator;
+      alert(calc.calculate('3 + 2'));
+
+      function Calculator() {
+        this.calculate = function(str) {
+          let arr = str.split(' ');
+          if (arr.length != 3 || !isFinite(arr[0]) || !isFinite(arr[2])) return alert('Invalid expression');
+          if (arr[1] === '+') {
+            return Number(arr[0]) + Number(arr[2]);
+          } else if (arr[1] === '-') {
+            return Number(arr[0]) - Number(arr[2]);
+          }  
+        };
+
+        this.addMethod = function(name, func) {
+
+        };
+      }
+      </script>
+  </body>
+</html>
