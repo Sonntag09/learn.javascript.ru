@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      let vasya = { name: "Вася", age: 25 };
+      let petya = { name: "Петя", age: 30 };
+      let masha = { name: "Маша", age: 29 };
+
+      let arr = [ vasya, petya, masha ];
+
+      alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+
+      function getAverageAge(array) {
+        let ageSum = array.reduce((sum, item) => sum + item.age, 0);
+        return Math.round(ageSum / array.length);
+      }
+    </script>
+  </body>
+</html>

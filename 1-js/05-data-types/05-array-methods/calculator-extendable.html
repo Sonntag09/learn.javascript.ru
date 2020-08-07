@@ -12,19 +12,30 @@
       let calc = new Calculator;
       alert(calc.calculate('3 + 2'));
 
+      let powerCalc = new Calculator;
+      powerCalc.addMethod("*", (a, b) => a * b);
+      powerCalc.addMethod("/", (a, b) => a / b);
+      powerCalc.addMethod("**", (a, b) => a ** b);
+
+      let result = powerCalc.calculate("2 ** 3");
+      alert( result ); // 8
+
       function Calculator() {
+        this['+'] = (a, b) => a + b;
+        this['-'] = (a, b) => a - b;
+
         this.calculate = function(str) {
-          let arr = str.split(' ');
-          if (arr.length != 3 || !isFinite(arr[0]) || !isFinite(arr[2])) return alert('Invalid expression');
-          if (arr[1] === '+') {
-            return Number(arr[0]) + Number(arr[2]);
-          } else if (arr[1] === '-') {
-            return Number(arr[0]) - Number(arr[2]);
-          }  
+          let arr = str.split(' '),
+          a = +arr[0],
+          b = +arr[2],
+          op = arr[1];
+          
+          return (!isFinite(a) || !isFinite(b) || arr.length != 3 || !this[op]) ? NaN : this[op](a, b);
+      
         };
 
         this.addMethod = function(name, func) {
-
+          this[name] = func;
         };
       }
       </script>
