@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+      
+      let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+      function aclean(array) {
+        let set = new Set();
+        let newArray = [];
+
+        for (let item of array) {
+          let elem = item.toLowerCase().split('').sort().join();
+          if (!set.has(elem)) {
+            set.add(elem);
+            newArray.push(item);            
+          }
+        }
+
+        return newArray; 
+      }
+
+      alert( aclean(arr) ); // "nap,teachers,ear" or "PAN,cheaters,era"
+    </script>
+  </body>
+</html>
