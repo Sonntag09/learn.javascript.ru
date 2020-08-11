@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+      
+      let user = {
+        name: 'John',
+        surname: 'Smith',
+        age: 30,
+      };
+      
+        user[Symbol.iterator] = function() {
+          return {
+            counter: 0,
+
+            next() {
+              if (this.counter <= Object.keys(this).length) {
+                this.counter++;
+                alert(Object.keys(this));
+                return {done: false, value: Object.keys(this)[this.counter - 1]};
+              } else {
+                return {done: true};
+              }
+            }
+
+          };
+        };
+      
+
+      for (let key of user) {
+        alert(key);
+      }
+    </script>
+  </body>
+</html>
