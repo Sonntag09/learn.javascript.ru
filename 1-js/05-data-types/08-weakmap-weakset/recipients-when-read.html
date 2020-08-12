@@ -9,7 +9,20 @@
     <script>
       'use strict'
       
-      
+      let messages = [
+        { text: "Hello", from: "John" },
+        { text: "How goes?", from: "John" },
+        { text: "See you soon", from: "Alice" }
+      ];
+
+      let whenRead = new WeakMap();
+
+      whenRead.set(messages[0], '11.04AM');
+      whenRead.set(messages[2], '02.01PM');
+
+      for (let item of messages) {
+        if (whenRead.has(item)) alert('Message have been read at ' + whenRead.get(item));
+      }
     </script>
   </body>
 </html>

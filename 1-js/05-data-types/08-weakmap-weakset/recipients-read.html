@@ -15,7 +15,12 @@
         {text: "See you soon", from: "Alice"}
       ];
 
+      let readMessages = new WeakSet();
       
+      readMessages.add(messages[0]);
+      readMessages.add(messages[2]);
+
+      alert(`Message 3 have been read? ${readMessages.has(messages[2])}`);
     </script>
   </body>
 </html>
