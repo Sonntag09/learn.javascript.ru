@@ -9,7 +9,27 @@
     <script>
       'use strict'
       
-      
+      let salaries = {
+        "John": 100,
+        "Pete": 300,
+        "Mary": 250
+      };
+
+      alert( topSalary(salaries) );
+
+      function topSalary(salaries) {
+
+        //if (Object.keys(salaries).length === 0) return null;
+
+        let maxSalary = 0;
+        let name = null;
+
+        for (let [key, value] of Object.entries(salaries)) {          
+          if (value > maxSalary) maxSalary = value, name = key;          
+        }
+
+        return name;
+      }
     </script>
   </body>
 </html>
