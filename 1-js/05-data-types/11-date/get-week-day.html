@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      let date = new Date(2012, 0, 3);  // 3 января 2012 года
+      alert( getWeekDay(date) );
+      
+      function getWeekDay(date) {
+        let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        return days[date.getDay()];
+
+        /*let day = date.getDay();
+        let shortDay;
+
+        switch (day) {
+          case 0:
+            shortDay = 'Sun';
+            break;
+        
+          case 1:
+            shortDay = 'Mon';
+            break;
+
+          case 2:
+            shortDay = 'Tue';
+            break;
+
+          case 3:
+            shortDay = 'Wed';
+            break;
+
+          case 4:
+            shortDay = 'Thu';
+            break;
+
+          case 5:
+            shortDay = 'Fri';
+            break;
+        
+          default:
+            shortDay = 'Sat';
+            break;
+        }
+
+        return shortDay;*/
+      }
+    </script>
+  </body>
+</html>
