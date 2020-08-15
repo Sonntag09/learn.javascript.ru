@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      alert( getSecondsToday() );
+
+      function getSecondsToday() {
+        let now = new Date();
+        let nowMs = now.getTime();
+        let dayStart = now.setHours(0, 0, 0, 0);
+        return Math.round((nowMs - dayStart) / 1000);
+      }
+    </script>
+  </body>
+</html>
