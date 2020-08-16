@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      let user = {
+        name: "Василий Иванович",
+        age: 35
+      };
+
+      let userJson = JSON.stringify(user);
+      let userDeserialized = JSON.parse(userJson);
+      alert(userDeserialized.name);
+    </script>
+  </body>
+</html>
