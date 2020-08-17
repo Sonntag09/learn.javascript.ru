@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      /*function sumTo(n) { //loop
+        let sum = 0;
+        for (let i = 1; i <= n; i++) {
+          sum += i;          
+        }
+        return sum;
+      }*/
+
+      function sumTo(n) { //recursion
+        return (n === 0) ? n : n + sumTo(n - 1);
+      }
+
+      /*function sumTo(n) { //progression
+        return n * (n + 1) / 2;
+      }*/
+
+      alert( sumTo(100) ); // 5050
+    </script>
+  </body>
+</html>

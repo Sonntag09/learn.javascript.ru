@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      function fib(n) {
+        let sum = 0;
+        let prevA = 1;
+        let prevB = 0;
+        for (let i = 1; i < n; i++) {
+          sum = prevA + prevB;
+          prevB = prevA;
+          prevA = sum;
+        }
+        return sum;
+      }
+
+      /*function fib(n) {
+        return (n <= 1) ? n : fib(n - 1) + fib(n - 2);
+      }*/
+
+      alert(fib(3)); // 2
+      alert(fib(7)); // 13
+      alert(fib(77)); // 5527939700884757
+    </script>
+  </body>
+</html>

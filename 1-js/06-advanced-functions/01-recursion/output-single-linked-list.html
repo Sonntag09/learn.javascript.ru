@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      let list = {
+        value: 1,
+        next: {
+          value: 2,
+          next: {
+            value: 3,
+            next: {
+              value: 4,
+              next: null
+            }
+          }
+        }
+      };
+
+      printList(list);
+
+      /*function printList(list) { //recursion
+        alert(list.value);
+        
+        if (list.next) { printList(list.next); }
+      }*/
+
+      function printList(list) { //loop
+        let tmp = list;
+
+        while (tmp) {
+          alert(tmp.value);
+          if (tmp.next === null) break;
+          tmp = tmp.next;
+        }
+      }
+    </script>
+  </body>
+</html>
