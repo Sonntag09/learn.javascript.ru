@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      alert( formatDate(new Date(new Date - 1)) ); // "прямо сейчас"
+
+      alert( formatDate(new Date(new Date - 30 * 1000)) ); // "30 сек. назад"
+
+      alert( formatDate(new Date(new Date - 5 * 60 * 1000)) ); // "5 мин. назад"
+
+      // вчерашняя дата вроде 31.12.2016, 20:00
+      alert( formatDate(new Date(new Date - 86400 * 1000)) );
+
+      function formatDate(date) {
+        let span = new Date() - date;
+        let day = addingZero(date.getDate());
+        let month = addingZero(date.getMonth() + 1);
+        let year = ('' + date.getFullYear()).slice(-2);
+        let hours = addingZero(date.getHours());
+        let minutes = addingZero(date.getMinutes());
+
+        let result = `${day}.${month}.${year} ${hours}:${minutes}`;
+
+        switch (true) {
+          case (span < 1000 && span > 0):
+            result = `прямо сейчас`;
+            break;
+        
+          case (span > 1000 && span < 60 * 1000):
+            result = `${Math.round(span / 1000)} сек. назад`;
+            break;
+
+          case (span > 60 * 1000 && span < 60 * 60 * 1000):
+            result = `${Math.round(span / 60000)} мин. назад`;
+            break;
+
+          default:
+            break;
+        }
+
+        return result;
+
+        function addingZero(number) {
+          return (number < 10) ? '0' + number : number;
+        }
+      }
+    </script>
+  </body>
+</html>

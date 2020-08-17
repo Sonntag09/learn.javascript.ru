@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      alert( getSecondsToTomorrow() );
+
+      function getSecondsToTomorrow() {
+        let now = new Date();
+        
+        let nextDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+        
+        return Math.round((nextDay - now) / 1000);
+      }
+    </script>
+  </body>
+</html>
