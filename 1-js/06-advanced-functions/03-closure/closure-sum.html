@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      alert( sum(1)(2) );
+
+      function sum(a) {
+        return function (b) {
+          return a + b;
+        }
+      }
+    </script>
+  </body>
+</html>
