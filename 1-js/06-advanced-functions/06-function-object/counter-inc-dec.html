@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      function makeCounter() {
+        /*let count = 0; -----------------//closure
+
+        counter.set = function(value) {
+          count = value;
+        };
+
+        counter.decrease = function() {
+          count--;
+        };
+      
+        function counter() {
+          
+          return count++;
+        }
+
+        return counter;*/
+
+        counter.count = 0;  //function property
+
+        counter.set = function(value) {
+          counter.count = value;
+        };
+
+        counter.decrease = function() {
+          counter.count--;
+        }
+
+        function counter() {
+          return counter.count++;
+        }
+
+        return counter;
+      }
+      
+      let counter = makeCounter();
+      
+      alert( counter() ); // 0
+      alert( counter() ); // 1
+      
+      counter.set(10); // установить новое значение счётчика
+      
+      alert( counter() ); // 10
+      
+      counter.decrease(); // уменьшить значение счётчика на 1
+      
+      alert( counter() ); // 10 (вместо 11)
+
+    </script>
+  </body>
+</html>
