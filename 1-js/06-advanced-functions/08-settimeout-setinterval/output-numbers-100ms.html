@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      printNumbers(45, 48);
+
+      /*function printNumbers(from, to) { //setInterval
+        let current = from;
+
+        let timer = setInterval(() => {
+          alert(current);
+          if (current == to) clearInterval(timer);
+          current++;
+        }, 1000);
+      }*/
+
+      function printNumbers(from, to) { //setTimeout recursion
+        let current = from;
+
+        let timer = setTimeout( function tick() {
+          alert(current);
+          if (current == to) { 
+            clearTimeout(timer);            
+          } else {
+            current++;
+            timer = setTimeout(tick(), 1000);
+          }  
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>
