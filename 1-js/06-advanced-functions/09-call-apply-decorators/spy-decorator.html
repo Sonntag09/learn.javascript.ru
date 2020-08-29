@@ -14,27 +14,22 @@
       }
 
       function spy(func) {
-        spy.calls = [];
-        alert(spy.calls);
-        return function() {
-          let arr = [];
-          for (const item of arguments) {
-            arr.push(item);
-          }
+        why.calls = [];
 
+        function why(...args) {
+          
           let result = func.apply(this, arguments);
-          spy.calls.push(arr);
-          alert(spy.calls[0]);
+          why.calls.push(args);
           return result;
         }
+        
+        return why;
       }
 
       work = spy(work);
 
       work(1, 2); // 3
       work(4, 5); // 9
-
-      alert(work.calls);
 
       for (let args of work.calls) {
         alert( 'call:' + args.join() ); // "call:1,2", "call:4,5"
