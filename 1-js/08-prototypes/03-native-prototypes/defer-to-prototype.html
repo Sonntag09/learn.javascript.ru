@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Alert</title>
+  </head>
+
+  <body>
+    <script>
+      'use strict'
+
+      Function.prototype.defer = function(ms) {
+        setTimeout(this, ms);
+      }
+
+      function f() {
+        alert("Hello!");
+      }
+
+      f.defer(1000); // выведет "Hello!" через 1 секунду
+    </script>
+  </body>
+</html>
