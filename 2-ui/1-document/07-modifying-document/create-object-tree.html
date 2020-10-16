@@ -31,12 +31,24 @@
     createTree(container, data); // создаёт дерево в контейнере
 
     function createTree(elem, obj) {
-      let ul = document.createElement('ul');
-      elem.append(ul);
-      
-      for (const prop of obj) {
-        
-      }
+
+      for (const val of Object.values(obj)) {
+
+        if (Object.keys(Object.values(val)[0]).length === 0) {
+          let ul = document.createElement('ul');
+          elem.append(ul);
+          for (const prop of Object.keys(obj)) {
+            let li = document.createElement('li');
+            ul.append(li);
+            li.textContent = prop;
+          }
+        } else {
+          for (const value of Object.values(obj)) {
+            createTree(elem.firstElementChild, value);
+          }
+        }
+
+      }     
     }
   </script>
 </body>
