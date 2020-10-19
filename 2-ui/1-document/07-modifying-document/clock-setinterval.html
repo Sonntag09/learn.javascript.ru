@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <div><span id="hours"></span>:<span id="minutes"></span>:<span id="seconds"></span></div>
+
+  <!-- клик по этой кнопке вызовет clockStart() -->
+  <input type="button" onclick="clockStart()" value="Старт">
+
+  <!-- клик по этой кнопке вызовет clockStop() -->
+  <input type="button" onclick="clockStop()" value="Стоп">
+
+
+  <script>
+    let timerId;
+    function clockStart() {
+      timerId = setInterval(() => {
+        document.getElementById('hours').textContent = (new Date().getHours() < 10) ? '0' + new Date().getHours() : new Date().getHours();
+        document.getElementById('minutes').textContent = (new Date().getMinutes() < 10) ? '0' + new Date().getMinutes() : new Date().getMinutes();
+        document.getElementById('seconds').textContent = (new Date().getSeconds() < 10) ? '0' + new Date().getSeconds() : new Date().getSeconds();
+      }, 1000);     
+    }
+
+    function clockStop() {
+      clearInterval(timerId);
+    }      
+  </script>
+
+</body>
+</html>
