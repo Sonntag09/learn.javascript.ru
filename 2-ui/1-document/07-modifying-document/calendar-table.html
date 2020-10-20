@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+      padding: 3px;
+      text-align: center;
+    }
+
+    th {
+      font-weight: bold;
+      background-color: #E6E6E6;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="calendar"></div>
+
+  <script>
+    function createCalendar(elem, year, month) {
+      let tr = document.createElement('tr');
+      elem.append(tr);
+      let dayHeadings = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+      dayHeadings.forEach(day => {
+        let th = document.createElement('th');
+        th.textContent = day;
+        tr.append(th);
+      });
+
+      let date = new Date(year, month - 1);
+      let days = new Date(year, month, 0).getDate();
+      for (let i = 1; i <= days; i++) {
+        tr = document.createElement('tr');
+        elem.append(tr);
+        let blank = date.getDay();        
+        for (let j = 0; j < 7; j++) {
+          i += j;
+          let td = document.createElement('td');
+          td.textContent = (i === 1 && date.setDate(i).getDay() < )
+          
+        }          
+      }
+    }
+
+    createCalendar(calendar, 2012, 9);
+  </script>
+
+</body>
+</html>
