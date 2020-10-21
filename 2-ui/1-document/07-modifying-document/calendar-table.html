@@ -28,8 +28,10 @@
 
   <script>
     function createCalendar(elem, year, month) {
+      let table = document.createElement('table');
+      elem.append(table);
       let tr = document.createElement('tr');
-      elem.append(tr);
+      table.append(tr);
       let dayHeadings = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
       dayHeadings.forEach(day => {
         let th = document.createElement('th');
@@ -39,20 +41,44 @@
 
       let date = new Date(year, month - 1);
       let days = new Date(year, month, 0).getDate();
-      for (let i = 1; i <= days; i++) {
-        tr = document.createElement('tr');
-        elem.append(tr);
-        let blank = date.getDay();        
-        for (let j = 0; j < 7; j++) {
-          i += j;
-          let td = document.createElement('td');
-          td.textContent = (i === 1 && date.setDate(i).getDay() < )
-          
-        }          
+      let weekFull = true;
+      let blank = date.getDay();
+      for (let i = 1; i <= days;) {
+        if (weekFull) {
+          tr = document.createElement('tr');
+          table.append(tr);
+          weekFull = false;
+        }
+
+        if (i === 1) {
+          if (blank === 0) blank = 7;
+          for (let j = 1; j < blank; j++) {
+            tr.append(document.createElement('td'));
+          }
+        }
+                
+        let td = document.createElement('td');
+        td.textContent = i;
+        tr.append(td);
+        i++;
+        date.setDate(i);
+        
+        if (date.getDay() === 1) {
+          weekFull = true;
+        }     
+      }
+
+      let lastDay = date.getDay() - 1;
+      for (lastDay; (lastDay < 7); lastDay++) {
+        if (lastDay === 0) break;
+        tr.append(document.createElement('td'));
       }
     }
 
-    createCalendar(calendar, 2012, 9);
+    for (let i = 1; i <= 12; i++) {
+      createCalendar(calendar, 2012, i);      
+    }
+    
   </script>
 
 </body>
