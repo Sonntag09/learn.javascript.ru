@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <table id="table">
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>Smith</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>Pete</td>
+      <td>Brown</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>Ann</td>
+      <td>Lee</td>
+      <td>5</td>
+    </tr>
+  </table>
+
+  <script>
+    function sortTableBy(id, key) {
+      let table = document.getElementById(id);
+      let ths = table.querySelectorAll('th');   
+      let trs = Array.from(table.querySelectorAll('tr'));
+      trs.shift();
+      if (key === ths[0].textContent) {
+        trs.sort((a, b) => a.children[0].textContent.localeCompare(b.children[0].textContent));
+        table.append(...trs);                
+      } else if (key === ths[1].textContent) {
+        trs.sort((a, b) => a.children[1].textContent.localeCompare(b.children[1].textContent));
+        table.append(...trs);               
+      } else if (key === ths[2].textContent) {
+        trs.sort((a, b) => (+a.children[2].textContent) - (+b.children[2].textContent));
+        table.append(...trs);              
+      }      
+    }
+
+    sortTableBy('table', 'Name');
+  </script>
+
+</body>
+</html>
