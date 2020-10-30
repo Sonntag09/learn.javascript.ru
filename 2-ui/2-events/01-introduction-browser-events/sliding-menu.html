@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    span {
+      color: green;
+    }
+
+    #listOn, ul {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div><span id="listOff">▶</span><span id="listOn">▼</span> Сладости (нажми меня)!</div>
+  <ul>
+    <li>Пирожное</li>
+    <li>Пончик</li>
+    <li>Мёд</li>
+  </ul>
+
+  <script>
+    let div = document.querySelector('div');
+    let on = false;
+
+    function listHandler() {
+      on = !on;
+      if (on) {
+        document.getElementById('listOff').style.display = 'none';
+        document.getElementById('listOn').style.display = '';
+        document.querySelector('ul').style.display = '';
+      } else {
+        document.getElementById('listOff').style.display = '';
+        document.getElementById('listOn').style.display = 'none';
+        document.querySelector('ul').style.display = 'none';        
+      }
+    };
+
+    div.addEventListener('click', listHandler);
+  </script>
+</body>
+</html>
