@@ -7,9 +7,16 @@
       color: green;
     }
 
-    #listOn, ul {
-      display: none;
+    div {
+      display:inline;
+      cursor: pointer;
+      margin: 0;
     }
+
+    ul {
+      list-style-type: none;
+    }
+    
   </style>
 </head>
 <body>
@@ -23,19 +30,17 @@
 
   <script>
     let div = document.querySelector('div');
-    let on = false;
+    let listOff = document.getElementById('listOff');
+    let listOn = document.getElementById('listOn');
+    let ul = document.querySelector('ul');
+
+    listOn.hidden = 'true';
+    ul.hidden = 'true';
 
     function listHandler() {
-      on = !on;
-      if (on) {
-        document.getElementById('listOff').style.display = 'none';
-        document.getElementById('listOn').style.display = '';
-        document.querySelector('ul').style.display = '';
-      } else {
-        document.getElementById('listOff').style.display = '';
-        document.getElementById('listOn').style.display = 'none';
-        document.querySelector('ul').style.display = 'none';        
-      }
+      listOn.hidden = !(listOn.hidden);
+      ul.hidden = !(ul.hidden);
+      listOff.hidden = !(listOff.hidden);
     };
 
     div.addEventListener('click', listHandler);
