@@ -7,6 +7,7 @@
   line-height: 24px;
   color: #444;
   display: block;
+  margin: 10px;
 }
 
 .arrow:focus {
@@ -20,11 +21,11 @@
 
 ul {
   height: 130px;
-  width: 9999px;
+  display: flex;
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 0;
+  font-size: 0;  
 }
 
 ul img {
@@ -35,4 +36,13 @@ ul img {
 
 ul li {
   display: inline-block; /* убираем пустое место между элементами списка */
+}
+
+div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: lightgrey;
+  border-radius: 15px;
+  width: min-content;
 }
