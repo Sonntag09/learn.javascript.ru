@@ -32,6 +32,7 @@ ul img {
   width: 130px;
   height: 130px;
   display: block; /* убираем пустое место вокруг картинок */
+  transition: all 1s;
 }
 
 ul li {

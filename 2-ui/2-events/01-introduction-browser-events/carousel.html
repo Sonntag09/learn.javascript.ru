@@ -47,17 +47,26 @@
 
     let leftArrow = document.querySelector('div:first-child');
     let rightArrow = document.querySelector('div:last-child');
-
-    leftArrow.addEventListener('click', moveLeft);
-    rightArrow.addEventListener('click', moveRight);
     let center = 5;
 
-    function moveLeft() {
+    leftArrow.addEventListener('click', moveLeft);
+    //rightArrow.addEventListener('click', moveRight);
+    
 
+    function moveLeft() {      
+      if ((center - 1) >= 0) {
+        center = center - 1;
+        pics[center - 1].style.display = 'block';
+        pics[center + 2].style.display = 'none';
+      }      
     }
 
     function moveRight() {
-
+      if (center + 1 < 10) {
+        center = center++;
+        pics[center - 1].style.display = 'block';
+        pics[center + 2].style.display = 'none';
+      }
     }
 
   </script>
