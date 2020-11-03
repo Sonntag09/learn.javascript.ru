@@ -8,10 +8,7 @@
 <body>
 
   <div>
-
-    <button class="arrow">⇦</button>
-    
-
+    <button id="left" class="arrow">⇦</button>
 
     <ul>
       <li><img src="https://ru.js.cx/carousel/1.png"></li>
@@ -26,7 +23,7 @@
       <li><img src="https://ru.js.cx/carousel/10.png"></li>
     </ul>
 
-    <button class="arrow">⇨</button>
+    <button id="right" class="arrow">⇨</button>
   </div>
 
   <script>
@@ -45,28 +42,32 @@
       if (i < 4 || i > 6) pics[i].style.display = 'none';
     }
 
-    let leftArrow = document.querySelector('div:first-child');
-    let rightArrow = document.querySelector('div:last-child');
-    let center = 5;
+    let leftArrow = document.getElementById('left');//document.querySelector('div:first-child');
+    let rightArrow = document.getElementById('right');//document.querySelectorAll('.arrow')[1];
+    let center = 5;    
 
     leftArrow.addEventListener('click', moveLeft);
-    //rightArrow.addEventListener('click', moveRight);
+    rightArrow.addEventListener('click', moveRight);
     
 
-    function moveLeft() {      
-      if ((center - 1) >= 0) {
-        center = center - 1;
-        pics[center - 1].style.display = 'block';
-        pics[center + 2].style.display = 'none';
+    function moveLeft() {
+      for (let i = 0; i < 3; i++) {
+        if ((center - 1) > 0) {
+          center--;
+          pics[center - 1].style.display = 'block';
+          pics[center + 2].style.display = 'none';
+        }              
       }      
     }
 
     function moveRight() {
-      if (center + 1 < 10) {
-        center = center++;
-        pics[center - 1].style.display = 'block';
-        pics[center + 2].style.display = 'none';
-      }
+      for (let i = 0; i < 3; i++) {
+        if ((center + 1) < 9) {
+          center++;
+          pics[center - 2].style.display = 'none';
+          pics[center + 1].style.display = 'block';
+        }            
+      }      
     }
 
   </script>
