@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    table {
+       border-collapse: collapse;
+     }
+     th, td {
+       border: 1px solid black;
+       padding: 4px;
+     }
+     th {
+       cursor: pointer;
+     }
+     th:hover {
+       background: yellow;
+     }
+  </style>
+</head>
+
+<body>
+
+  <table id="grid">
+    <thead>
+      <tr>
+        <th data-type="number">Возраст</th>
+        <th data-type="string">Имя</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>5</td>
+        <td>Вася</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Петя</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Женя</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Маша</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Илья</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    let tbody = document.querySelector('#grid > tbody');
+    let rows = Array.from(tbody.querySelectorAll('tr'));
+
+    document.getElementById('grid').addEventListener('click', sortTable);
+    
+    function sortTable(event) {
+      let type = event.target.dataset.type;
+      if (!type) return;
+      switch (type) {
+        case 'number':
+          rows.sort((a, b) => (+a.children[0].textContent) - (+b.children[0].textContent));
+          tbody.append(...rows);          
+          break;      
+        case 'string':
+          rows.sort((a, b) => a.children[1].textContent.localeCompare(b.children[1].textContent));
+          tbody.append(...rows);
+          break;
+      }
+    }
+  </script>
+
+</body>
+</html>
