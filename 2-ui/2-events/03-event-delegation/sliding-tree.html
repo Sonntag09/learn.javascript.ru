@@ -3,15 +3,10 @@
 <head>
   <meta charset="utf-8">
   <style>
-    li:hover {
+    span:hover {
       cursor: pointer;
       font-weight: bold;      
-    }
-
-    li {
-      border: 1px solid green;
-      width: min-content;
-    }
+    }    
   </style>
 </head>
 <body>
@@ -55,8 +50,22 @@
 
   <script>
     let tree = document.getElementById('tree');
+    let lis = document.querySelectorAll('li');
 
-    tree.addEventListener('mouseover', () => )
+    for (const elem of lis) {
+      let text = elem.firstChild.textContent;     
+      elem.firstChild.textContent = '';
+      elem.insertAdjacentHTML('afterbegin', `<span>${text}</span>`);
+    }    
+
+    tree.addEventListener('click', closeList);
+
+    function closeList(event) {
+      if (event.target.tagName != 'SPAN') return;
+      let ul = event.target.parentNode.querySelector('ul');
+      if (!ul) return;      
+      ul.hidden = !ul.hidden;      
+    }
   </script>
 </body>
 </html>
