@@ -20,5 +20,16 @@
     </p>
   </fieldset>
 
+  <script>
+    let fieldset = document.getElementById('contents');
+    fieldset.addEventListener('click', link);
+
+    function link(event) {
+      if (event.target.nodeName != 'A') return;
+      event.preventDefault();
+      if (confirm('Leave this page?')) event.defaultPrevented = false;
+    }
+  </script>
+
 </body>
 </html>
