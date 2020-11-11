@@ -21,13 +21,14 @@
   </fieldset>
 
   <script>
-    let fieldset = document.getElementById('contents');
-    fieldset.addEventListener('click', link);
+    let contents = document.getElementById('contents');
+    contents.addEventListener('click', confirmation);
 
-    function link(event) {
-      if (event.target.nodeName != 'A') return;
-      event.preventDefault();
-      if (confirm('Leave this page?')) event.defaultPrevented = false;
+    function confirmation(event) {
+      let link = event.target.closest('a');
+      if (link && contents.contains(link)) {
+        if (!confirm('Move?')) event.preventDefault();
+      }
     }
   </script>
 
