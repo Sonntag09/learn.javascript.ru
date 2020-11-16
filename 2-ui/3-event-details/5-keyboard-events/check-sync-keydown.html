@@ -10,10 +10,34 @@
   
 
   <script>
+    runOnKeys(
+      () => alert("Привет!"),
+      "KeyQ",
+      "KeyW"
+    );
+
     function runOnKeys(func, ...codes) {
-      for (let i = 1; i <= codes.length; i++) {
-        let ;
-        
+      
+      let combo = new Set();      
+
+      document.addEventListener('keydown', keyCheck);
+      document.addEventListener('keyup', comboClear);
+
+      function keyCheck(event) {
+        for (const key of codes) {
+          if (event.code === key) combo.add(key);
+        }
+
+        for (const key of codes) {
+          if (!combo.has(key)) return;          
+        }
+      
+        func();
+        combo.clear();        
+      }
+
+      function comboClear(event) {
+        combo.delete(event.code);
       }
     }
   </script>
