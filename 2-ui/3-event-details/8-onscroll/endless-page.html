@@ -9,18 +9,28 @@
 <h1>Прокрути меня</h1>
 
 <script>
-  alert(window.pageYOffset);
-  /*while(window.pageYOffset === 0) {    
+
+  
+
+  while(true) {
     makeDate();
-  }*/
+    let scrollHeight = Math.max(
+      document.body.scrollHeight, document.documentElement.scrollHeight,
+      document.body.offsetHeight, document.documentElement.offsetHeight,
+      document.body.clientHeight, document.documentElement.clientHeight
+    );
+
+    if (scrollHeight > document.documentElement.clientHeight) break;
+
+  }
 
   window.addEventListener('scroll', makeDate);
 
   function makeDate() {
     let date = new Date();
-    let div = document.createElement('div');
-    div.innerHTML = date;
-    document.body.append(div);
+    let p = document.createElement('p');
+    p.innerHTML = date;
+    document.body.append(p);
   }
 </script>
 
