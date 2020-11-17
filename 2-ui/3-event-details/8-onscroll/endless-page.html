@@ -20,16 +20,15 @@
       document.body.clientHeight, document.documentElement.clientHeight
     );
 
-    if (scrollHeight > document.documentElement.clientHeight) break;
+    if (scrollHeight > document.documentElement.clientHeight + 100) break;
 
   }
 
   window.addEventListener('scroll', makeDate);
 
-  function makeDate() {
-    let date = new Date();
+  function makeDate() {    
     let p = document.createElement('p');
-    p.innerHTML = date;
+    p.innerHTML = new Date();
     document.body.append(p);
   }
 </script>
