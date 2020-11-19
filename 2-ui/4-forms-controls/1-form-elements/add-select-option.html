@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+  </head>
+  <body>
+    <select id="genres">
+      <option value="rock">Рок</option>
+      <option value="blues" selected>Блюз</option>
+    </select>
+
+    <script>
+      let genres = document.getElementById('genres');
+      alert(genres.value);
+      let classic = new Option('Классика', 'classic');
+      genres.appendChild(classic);
+      genres.value = 'classic';
+    </script>
+  </body>
+</html>
