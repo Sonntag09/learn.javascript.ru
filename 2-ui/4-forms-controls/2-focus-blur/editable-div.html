@@ -39,13 +39,25 @@
 
     <script>
       let div = document.getElementById('view');
-      let textarea = document.createElement('textarea');
-      textarea.classList.add('view');
+      let textarea = document.createElement('textarea');     
+      textarea.classList.add('edit');
 
       div.onclick = function() {
-        div.style.display = 'none';
-        document.body.append(textarea);
+        div.replaceWith(textarea);
+        textarea.focus();
       };
+
+      textarea.addEventListener('blur', textToDiv);
+      textarea.addEventListener('keydown', function(event) {
+        if (event.code != 'Enter') return;
+        event.preventDefault();
+        textToDiv();
+      } );
+
+      function textToDiv() {
+        div.innerHTML = textarea.value;
+        textarea.replaceWith(div);
+      }
     </script>
   </body>
 </html>
