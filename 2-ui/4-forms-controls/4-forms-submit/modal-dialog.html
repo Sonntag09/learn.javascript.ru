@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <button>click me</button>
+
+  <div id="prompt-form-container" hidden>
+    <form id="prompt-form">
+      <div id="prompt-message">Введите что-нибудь...
+        <br>Пожалуйста..</div>
+      <input name="text" type="text">
+      <input type="submit" value="Ok">
+      <input type="button" name="cancel" value="Отмена">
+    </form>
+  </div>
+
+  <script>
+    let button = document.querySelector('button');
+    button.onclick = showPrompt('Введите что-нибудь...<br>Please..', value => alert(value));  
+
+    function showPrompt(html, callback) {
+      let container = document.getElementById('prompt-form-container');
+      container.hidden = false;
+    }
+  </script>
+
+</body>
+
+</html>
