@@ -21,11 +21,37 @@
 
   <script>
     let button = document.querySelector('button');
-    button.onclick = showPrompt('Введите что-нибудь...<br>Please..', value => alert(value));  
+    button.onclick = () => showPrompt('Введите что-нибудь...<br>Please..', value => alert(value));  
 
     function showPrompt(html, callback) {
       let container = document.getElementById('prompt-form-container');
       container.hidden = false;
+
+      document.getElementById('prompt-message').innerHTML = html;
+      let form = document.getElementById('prompt-form');
+      form.elements.text.value = '';
+      form.elements.text.focus();
+
+      form.onsubmit = function(event) {
+        event.preventDefault();
+        callback(form.elements.text.value);
+        container.hidden = true;
+      };
+
+      form.elements.cancel.onclick = () => {callback(null); container.hidden = true;};
+      form.onkeydown = function(event) {
+        if (event.code != "Escape") return;
+        callback(null);
+        container.hidden = true;
+      };
+
+      //DOESN'T WORK PROPERLY
+      for (const elem of form.elements) {
+        elem.onblur = function() {
+          if (!form.contains(document.activeElement)) form.elements.text.focus();
+        };
+      }      
+
     }
   </script>
 
