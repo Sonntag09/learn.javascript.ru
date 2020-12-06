@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <script>
+      async function loadJson(url) {
+        let result = await fetch(url);
+        if (result.status == 200) {
+          let json = await result.json();
+          return json;
+        } else {
+          throw new Error(result.status);
+        }
+      }
+
+      loadJson('no-such-user.json') // (3)
+        .catch(alert); // Error: 404
+    </script>
+  </body>
+</html>
