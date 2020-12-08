@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <script>
+      let randomObj = {
+        name: 'RND',
+
+        [Symbol.iterator]() {
+          return {
+            count: 0,
+
+            next() {
+              if (this.count < 10) {
+                this.count++;
+                return {done: false, value: Math.round(Math.random() * 10)};
+              } else {
+                return {done: true};
+              }
+            }
+          };
+        }
+      };
+
+      for (const num of randomObj) {
+        console.log(num);
+      }
+
+      console.log(randomObj.name + ' count done!');
+    </script>
+  </body>
+</html>
